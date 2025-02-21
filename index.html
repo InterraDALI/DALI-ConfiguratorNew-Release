@@ -3,236 +3,111 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Güncelleme Sayfassssı</title>
+  <title>Güncelleme Bilgileri</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
   <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f4f4f9;
-      margin: 0;
-      padding: 0;
-      color: #333;
-    }
-    header {
-      background-color: #1A73E8;
-      color: white;
-      text-align: center;
-      padding: 30px 0;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5em;
-      letter-spacing: 1px;
-    }
     .container {
-      max-width: 1100px;
-      margin: 40px auto;
-      padding: 30px;
-      background-color: white;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      border-radius: 12px;
-    }
-    h2 {
-      text-align: center;
-      font-size: 1.8em;
-      color: #333;
-      margin-bottom: 30px;
-    }
-    .update-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 20px;
-      background-color: #fff;
-      border-radius: 10px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, background-color 0.3s ease;
-      cursor: pointer;
-    }
-    .update-item:hover {
-      transform: scale(1.03);
-      background-color: #f1f1f1;
-    }
-    .update-item img {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    .update-item .details {
-      flex-grow: 1;
-      margin-left: 20px;
-    }
-    .update-item .details h3 {
-      margin: 0;
-      color: #333;
-      font-size: 1.2em;
-    }
-    .update-item .details p {
-      color: #555;
-      font-size: 0.95em;
-      margin-top: 5px;
-      line-height: 1.4;
-    }
-    .update-item .btn {
-      background-color: #1A73E8;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      font-size: 0.9em;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-    .update-item .btn:hover {
-      background-color: #0c62bb;
-      transform: translateY(-2px);
-    }
-    .full-details {
-      display: none;
-      margin-top: 20px;
-      background-color: #f9f9f9;
-      padding: 20px;
-      border-radius: 8px;
-    }
-    .full-details img {
-      max-width: 100%;
-      border-radius: 8px;
-      margin-top: 15px;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-    .full-details img:hover {
-      transform: scale(1.05);
-    }
-    footer {
-      background-color: #333;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      position: fixed;
-      width: 100%;
-      bottom: 0;
-    }
-    .image-modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.8);
-      justify-content: center;
-      align-items: center;
-    }
-    .image-modal img {
-      max-width: 90%;
-      max-height: 90%;
+      margin-top: 50px;
     }
 
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .update-item {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .update-item .details {
-        margin-left: 0;
-      }
-      .update-item img {
-        margin-bottom: 10px;
-      }
+    .update-box {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 20px;
+      margin-bottom: 20px;
+      background-color: #f8f9fa;
+    }
+
+    .update-header {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .update-details {
+      margin-top: 10px;
+    }
+
+    .update-img {
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .update-img:hover {
+      transform: scale(1.1);
+    }
+
+    .modal-content {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .modal-body img {
+      width: 100%;
+      max-width: 800px;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Güncelleme Sayfası</h1>
-  </header>
-
   <div class="container">
-    <h2>Son Güncellemeler</h2>
+    <div class="update-box">
+      <div class="update-header">Yeni Sürüm: v2.1.0</div>
+      <div class="update-details">
+        <p><strong>Release Bilgisi:</strong> Bu güncelleme, uygulamanın hızını artırmak ve bazı hata düzeltmeleri yapmak için yapılmıştır.</p>
+        <p><strong>Yeni Sürüm:</strong> v2.1.0 - Performans İyileştirmeleri ve Hata Düzeltmeleri</p>
 
-    <div class="update-item">
-      <img src="images/update1.jpg" alt="Güncelleme 1">
-      <div class="details">
-        <h3>Güncelleme 1</h3>
-        <p>Yeni özellikler eklendi ve performans iyileştirmeleri yapıldı.</p>
-      </div>
-      <button class="btn">Detaylar</button>
-      <div class="full-details">
-        <p>Bu güncelleme ile, hız ve kullanıcı deneyimi üzerinde ciddi iyileştirmeler yapılmıştır. Performans testleri sonucunda kullanıcı etkileşim hızlarında önemli artışlar gözlemlenmiştir. Ayrıca, arayüzde yapılan düzenlemelerle uygulama çok daha modern ve kullanıcı dostu hale getirilmiştir.</p>
-        <img src="images/detail1.jpg" alt="Güncelleme Detayı 1" class="zoomable">
+        <h5>Detay</h5>
+        <p>Bu sürümde yapılan iyileştirmeler, kullanıcı deneyimini daha akıcı hale getirmek için önemli değişiklikler içermektedir.</p>
+
+        <h5>Görsel</h5>
+        <!-- Görselin bulunduğu klasör "images" -->
+        <img src="images/details1.jpg" alt="Update Image 1" class="update-img" data-toggle="modal" data-target="#imageModal1">
+        <img src="images/details2.jpg" alt="Update Image 2" class="update-img" data-toggle="modal" data-target="#imageModal2">
+
       </div>
     </div>
-
-    <div class="update-item">
-      <img src="images/update2.jpg" alt="Güncelleme 2">
-      <div class="details">
-        <h3>Güncelleme 2</h3>
-        <p>Hata düzeltmeleri ve stabilite artırıldı.</p>
-      </div>
-      <button class="btn">Detaylar</button>
-      <div class="full-details">
-        <p>Bu güncelleme, sistemdeki mevcut hataları düzelterek stabiliteyi artırmayı hedefliyor. Kullanıcılar artık daha sorunsuz bir deneyim yaşayacaklar ve bazı küçük hatalar giderildi. Uygulama daha kararlı hale geldi.</p>
-        <img src="images/detail2.jpg" alt="Güncelleme Detayı 2" class="zoomable">
-      </div>
-    </div>
-
-    <div class="update-item">
-      <img src="images/update3.jpg" alt="Güncelleme 3">
-      <div class="details">
-        <h3>Güncelleme 3</h3>
-        <p>Kullanıcı arayüzü yenilendi ve yeni işlevler eklendi.</p>
-      </div>
-      <button class="btn">Detaylar</button>
-      <div class="full-details">
-        <p>Arayüz tamamen yenilenmiş olup, kullanıcı dostu yeni öğeler eklenmiştir. Ayrıca yeni işlevler sayesinde kullanıcılar daha verimli çalışabilecek ve daha fazla işlem gerçekleştirebilecekler. Bu güncelleme ile kullanıcı deneyimi bir adım daha ileri taşındı.</p>
-        <img src="images/detail3.jpg" alt="Güncelleme Detayı 3" class="zoomable">
-      </div>
-    </div>
-
   </div>
 
-  <footer>
-    <p>&copy; 2025 Güncelleme Sayfası | Tüm Hakları Saklıdır</p>
-  </footer>
-
-  <div class="image-modal">
-    <img id="modal-img" src="" alt="Büyütülmüş Görsel">
+  <!-- Modal 1 -->
+  <div class="modal fade" id="imageModal1" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel1" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="imageModalLabel1">Güncelleme Görseli 1</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="images/details1.jpg" alt="Update Image 1">
+        </div>
+      </div>
+    </div>
   </div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      document.querySelectorAll('.btn').forEach(function(button) {
-        button.addEventListener('click', function() {
-          const fullDetails = this.nextElementSibling;
-          if (fullDetails.style.display === "none" || fullDetails.style.display === "") {
-            fullDetails.style.display = "block";
-            this.textContent = "Gizle";
-          } else {
-            fullDetails.style.display = "none";
-            this.textContent = "Detaylar";
-          }
-        });
-      });
+  <!-- Modal 2 -->
+  <div class="modal fade" id="imageModal2" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel2" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="imageModalLabel2">Güncelleme Görseli 2</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="images/details2.jpg" alt="Update Image 2">
+        </div>
+      </div>
+    </div>
+  </div>
 
-      document.querySelectorAll('.zoomable').forEach(function(img) {
-        img.addEventListener('click', function() {
-          const modal = document.querySelector('.image-modal');
-          const modalImg = document.getElementById('modal-img');
-          modalImg.src = this.src;
-          modal.style.display = "flex";
-        });
-      });
-
-      document.querySelector('.image-modal').addEventListener('click', function() {
-        this.style.display = "none";
-      });
-    });
-  </script>
+  <!-- Bootstrap JS & jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
 </html>
