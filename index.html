@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
@@ -6,93 +6,111 @@
   <title>Güncelleme Sayfası</title>
   <style>
     body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f7f7f7;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f9;
       margin: 0;
       padding: 0;
+      color: #333;
     }
     header {
-      background-color: #4CAF50;
+      background-color: #1A73E8;
       color: white;
       text-align: center;
-      padding: 20px;
+      padding: 30px 0;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      letter-spacing: 1px;
     }
     .container {
-      max-width: 1200px;
-      margin: 20px auto;
-      padding: 20px;
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 30px;
       background-color: white;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
     }
     h2 {
-      color: #333;
       text-align: center;
+      font-size: 1.8em;
+      color: #333;
+      margin-bottom: 30px;
     }
     .update-item {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      margin-bottom: 15px;
-      padding: 10px;
-      background-color: #f2f2f2;
-      border-radius: 8px;
-      transition: transform 0.3s ease;
+      justify-content: space-between;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, background-color 0.3s ease;
       cursor: pointer;
-      flex-direction: row;
     }
     .update-item:hover {
-      transform: scale(1.05);
-      background-color: #e9e9e9;
+      transform: scale(1.03);
+      background-color: #f1f1f1;
     }
     .update-item img {
-      width: 50px;
-      height: 50px;
+      width: 60px;
+      height: 60px;
       border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
     .update-item .details {
       flex-grow: 1;
-      margin-left: 15px;
+      margin-left: 20px;
     }
     .update-item .details h3 {
       margin: 0;
       color: #333;
+      font-size: 1.2em;
     }
     .update-item .details p {
-      margin: 5px 0;
-      color: #666;
-      font-size: 14px;
+      color: #555;
+      font-size: 0.95em;
+      margin-top: 5px;
+      line-height: 1.4;
     }
     .update-item .btn {
-      background-color: #4CAF50;
+      background-color: #1A73E8;
       color: white;
       border: none;
-      padding: 8px 15px;
-      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 0.9em;
+      border-radius: 8px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease, transform 0.3s ease;
     }
     .update-item .btn:hover {
-      background-color: #45a049;
+      background-color: #0c62bb;
+      transform: translateY(-2px);
     }
     .full-details {
       display: none;
-      margin-top: 15px;
-      padding: 15px;
+      margin-top: 20px;
       background-color: #f9f9f9;
+      padding: 20px;
       border-radius: 8px;
     }
     .full-details img {
       max-width: 100%;
       border-radius: 8px;
-      margin-top: 10px;
+      margin-top: 15px;
       cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .full-details img:hover {
+      transform: scale(1.05);
     }
     footer {
       background-color: #333;
       color: white;
       text-align: center;
-      padding: 10px;
+      padding: 20px;
       position: fixed;
       width: 100%;
       bottom: 0;
@@ -111,6 +129,20 @@
     .image-modal img {
       max-width: 90%;
       max-height: 90%;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .update-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .update-item .details {
+        margin-left: 0;
+      }
+      .update-item img {
+        margin-bottom: 10px;
+      }
     }
   </style>
 </head>
@@ -171,37 +203,36 @@
   <div class="image-modal">
     <img id="modal-img" src="" alt="Büyütülmüş Görsel">
   </div>
- <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    // Sayfa yüklendikten sonra butonları ve resimleri seçip etkinleştiriyoruz
-    document.querySelectorAll('.btn').forEach(function(button) {
-      button.addEventListener('click', function() {
-        const fullDetails = this.nextElementSibling;
-        if (fullDetails.style.display === "none" || fullDetails.style.display === "") {
-          fullDetails.style.display = "block";
-          this.textContent = "Gizle";
-        } else {
-          fullDetails.style.display = "none";
-          this.textContent = "Detaylar";
-        }
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('.btn').forEach(function(button) {
+        button.addEventListener('click', function() {
+          const fullDetails = this.nextElementSibling;
+          if (fullDetails.style.display === "none" || fullDetails.style.display === "") {
+            fullDetails.style.display = "block";
+            this.textContent = "Gizle";
+          } else {
+            fullDetails.style.display = "none";
+            this.textContent = "Detaylar";
+          }
+        });
+      });
+
+      document.querySelectorAll('.zoomable').forEach(function(img) {
+        img.addEventListener('click', function() {
+          const modal = document.querySelector('.image-modal');
+          const modalImg = document.getElementById('modal-img');
+          modalImg.src = this.src;
+          modal.style.display = "flex";
+        });
+      });
+
+      document.querySelector('.image-modal').addEventListener('click', function() {
+        this.style.display = "none";
       });
     });
-
-    document.querySelectorAll('.zoomable').forEach(function(img) {
-      img.addEventListener('click', function() {
-        const modal = document.querySelector('.image-modal');
-        const modalImg = document.getElementById('modal-img');
-        modalImg.src = this.src;
-        modal.style.display = "flex";
-      });
-    });
-
-    document.querySelector('.image-modal').addEventListener('click', function() {
-      this.style.display = "none";
-    });
-  });
-</script>
-
+  </script>
 
 </body>
 </html>
