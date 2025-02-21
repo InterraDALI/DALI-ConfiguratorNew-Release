@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Güncelleme Sayfası</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f7f7f7;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+    h2 {
+      color: #333;
+      text-align: center;
+    }
+    .update-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      padding: 10px;
+      background-color: #f2f2f2;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      flex-direction: row;
+    }
+    .update-item:hover {
+      transform: scale(1.05);
+      background-color: #e9e9e9;
+    }
+    .update-item img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+    .update-item .details {
+      flex-grow: 1;
+      margin-left: 15px;
+    }
+    .update-item .details h3 {
+      margin: 0;
+      color: #333;
+    }
+    .update-item .details p {
+      margin: 5px 0;
+      color: #666;
+      font-size: 14px;
+    }
+    .update-item .btn {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .update-item .btn:hover {
+      background-color: #45a049;
+    }
+    .full-details {
+      display: none;
+      margin-top: 15px;
+      padding: 15px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+    }
+    .full-details img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+    .image-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+    }
+    .image-modal img {
+      max-width: 90%;
+      max-height: 90%;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Güncelleme Sayfası</h1>
+  </header>
+
+  <div class="container">
+    <h2>Son Güncellemeler</h2>
+
+    <div class="update-item">
+      <img src="images/update1.jpg" alt="Güncelleme 1">
+      <div class="details">
+        <h3>Güncelleme 1</h3>
+        <p>Yeni özellikler eklendi ve performans iyileştirmeleri yapıldı.</p>
+      </div>
+      <button class="btn">Detaylar</button>
+      <div class="full-details">
+        <p>Bu güncelleme ile, hız ve kullanıcı deneyimi üzerinde ciddi iyileştirmeler yapılmıştır. Performans testleri sonucunda kullanıcı etkileşim hızlarında önemli artışlar gözlemlenmiştir. Ayrıca, arayüzde yapılan düzenlemelerle uygulama çok daha modern ve kullanıcı dostu hale getirilmiştir.</p>
+        <img src="images/detail1.jpg" alt="Güncelleme Detayı 1" class="zoomable">
+      </div>
+    </div>
+
+    <div class="update-item">
+      <img src="images/update2.jpg" alt="Güncelleme 2">
+      <div class="details">
+        <h3>Güncelleme 2</h3>
+        <p>Hata düzeltmeleri ve stabilite artırıldı.</p>
+      </div>
+      <button class="btn">Detaylar</button>
+      <div class="full-details">
+        <p>Bu güncelleme, sistemdeki mevcut hataları düzelterek stabiliteyi artırmayı hedefliyor. Kullanıcılar artık daha sorunsuz bir deneyim yaşayacaklar ve bazı küçük hatalar giderildi. Uygulama daha kararlı hale geldi.</p>
+        <img src="images/detail2.jpg" alt="Güncelleme Detayı 2" class="zoomable">
+      </div>
+    </div>
+
+    <div class="update-item">
+      <img src="images/update3.jpg" alt="Güncelleme 3">
+      <div class="details">
+        <h3>Güncelleme 3</h3>
+        <p>Kullanıcı arayüzü yenilendi ve yeni işlevler eklendi.</p>
+      </div>
+      <button class="btn">Detaylar</button>
+      <div class="full-details">
+        <p>Arayüz tamamen yenilenmiş olup, kullanıcı dostu yeni öğeler eklenmiştir. Ayrıca yeni işlevler sayesinde kullanıcılar daha verimli çalışabilecek ve daha fazla işlem gerçekleştirebilecekler. Bu güncelleme ile kullanıcı deneyimi bir adım daha ileri taşındı.</p>
+        <img src="images/detail3.jpg" alt="Güncelleme Detayı 3" class="zoomable">
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Güncelleme Sayfası | Tüm Hakları Saklıdır</p>
+  </footer>
+
+  <div class="image-modal">
+    <img id="modal-img" src="" alt="Büyütülmüş Görsel">
+  </div>
+ <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Sayfa yüklendikten sonra butonları ve resimleri seçip etkinleştiriyoruz
+    document.querySelectorAll('.btn').forEach(function(button) {
+      button.addEventListener('click', function() {
+        const fullDetails = this.nextElementSibling;
+        if (fullDetails.style.display === "none" || fullDetails.style.display === "") {
+          fullDetails.style.display = "block";
+          this.textContent = "Gizle";
+        } else {
+          fullDetails.style.display = "none";
+          this.textContent = "Detaylar";
+        }
+      });
+    });
+
+    document.querySelectorAll('.zoomable').forEach(function(img) {
+      img.addEventListener('click', function() {
+        const modal = document.querySelector('.image-modal');
+        const modalImg = document.getElementById('modal-img');
+        modalImg.src = this.src;
+        modal.style.display = "flex";
+      });
+    });
+
+    document.querySelector('.image-modal').addEventListener('click', function() {
+      this.style.display = "none";
+    });
+  });
+</script>
+
+
+</body>
+</html>
